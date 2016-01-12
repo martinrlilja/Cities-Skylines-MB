@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using ColossalFramework;
-using ColossalFramework.Packaging;
-using ColossalFramework.Plugins;
+using ColossalFramework.Globalization;
 using ColossalFramework.UI;
 using ICities;
 using UnityEngine;
@@ -14,21 +15,40 @@ namespace MoreBeautification
         public override void OnLevelLoaded(LoadMode mode)
         {
             base.OnLevelLoaded(mode);
+            var locale = (Locale)typeof(LocaleManager).GetField("m_Locale", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(SingletonLite<LocaleManager>.instance);
+            for (uint i = 0; i < PrefabCollection<PropInfo>.PrefabCount(); i++)
+            {
+                var prefab = PrefabCollection<PropInfo>.GetPrefab(i);
+                if (prefab == null)
+                {
+                    continue;
+                }
+                var key = new Locale.Key { m_Identifier = "PROPS_TITLE", m_Key = prefab.name };
+                if (!locale.Exists(key))
+                {
+                    locale.AddLocalizedString(key, prefab.name);
+                }
+                key = new Locale.Key { m_Identifier = "PROPS_DESC", m_Key = prefab.name };
+                if (!locale.Exists(key))
+                {
+                    locale.AddLocalizedString(key, prefab.name);
+                }
+            }
 
-            UITabstrip tabstrip = (UITabstrip)ToolsModifierControl.mainToolbar.component;
-            UITabstrip beautificationTabstrip = this.BeautificationTabstrip(tabstrip);
+            var tabstrip = (UITabstrip)ToolsModifierControl.mainToolbar.component;
+            var beautificationTabstrip = this.BeautificationTabstrip(tabstrip);
 
             if (beautificationTabstrip != null && !this.IsCreated(beautificationTabstrip))
             {
                 this.AddPropsPanels(beautificationTabstrip, new EditorProps[] {
-                    new EditorProps ("PropsBillboards", new string[] {
+                    new EditorProps ("PropsBillboards", new[] {
                         "PropsBillboardsLogo",
                         "PropsBillboardsSmallBillboard",
                         "PropsBillboardsMediumBillboard",
                         "PropsBillboardsLargeBillboard",
                     }, "ToolbarIconPropsBillboards", "Billboards"),
 
-                    new EditorProps ("PropsSpecialBillboards", new string[] {
+                    new EditorProps ("PropsSpecialBillboards", new[] {
                         "PropsBillboardsRandomLogo",
                         "PropsSpecialBillboardsRandomSmallBillboard",
                         "PropsSpecialBillboardsRandomMediumBillboard",
@@ -37,41 +57,45 @@ namespace MoreBeautification
                         "PropsSpecialBillboardsAnimatedBillboard",
                     }, "ToolbarIconPropsSpecialBillboards", "Special Billboards"),
 
-                    new EditorProps ("PropsIndustrial", new string[] {
+                    new EditorProps ("PropsIndustrial", new[] {
                         "PropsIndustrialContainers",
                         "PropsIndustrialConstructionMaterials",
                         "PropsIndustrialStructures",
                     }, "ToolbarIconPropsIndustrial", "Industrial"),
 
-                    new EditorProps ("PropsParks", new string[] {
+                    new EditorProps ("PropsParks", new[] {
                         "PropsParksPlaygrounds",
                         "PropsParksFlowersAndPlants",
                         "PropsParksParkEquipment",
                         "PropsParksFountains",
                     }, "ToolbarIconPropsParks", "Parks"),
 
-                    new EditorProps ("PropsCommon", new string[] {
+                    new EditorProps ("PropsCommon", new[] {
                         "PropsCommonAccessories",
                         "PropsCommonGarbage",
                         "PropsCommonCommunications",
                         "PropsCommonStreets"
                     }, "ToolbarIconPropsCommon", "Common"),
 
-                    new EditorProps ("PropsResidential", new string[] {
+                    new EditorProps ("PropsResidential", new[] {
                         "PropsResidentialHomeYard",
-                        "PropsResidentialGroundTiles",
                         "PropsResidentialRooftopAccess",
                         "PropsResidentialRandomRooftopAccess",
                     }, "ToolbarIconPropsResidential", "Residential"),
 
-                    new EditorProps ("PropsLights", new string[] {
+                    new EditorProps ("PropsLights", new[] {
                         "PropsCommonStreets",
                         "PropsCommonLights",
                         PrefabInfo.kDefaultCategory,
                         PrefabInfo.kSameAsGameCategory,
                     }, "SubBarPropsCommonLights", "Lights"),
 
-                    new EditorProps ("PropsUnsorted", new string[] {
+
+                    new EditorProps ("PropsGroundTiles", new[] {
+                        "PropsResidentialGroundTiles"
+                    }, "SubBarPropsResidentialGroundTiles", "Ground Tiles"),
+
+                    new EditorProps ("PropsUnsorted", new[] {
                         PrefabInfo.kDefaultCategory,
                         PrefabInfo.kSameAsGameCategory,
                         "PropsMarkers"
@@ -79,7 +103,6 @@ namespace MoreBeautification
 
                 });
             }
-            // CreateGroupItem (new GeneratedGroupPanel.GroupInfo ("PropsParksParkEquipment", this.GetCategoryOrder (base.name), "Props"), "PROPS_CATEGORY");
         }
 
         private struct EditorProps
@@ -100,9 +123,9 @@ namespace MoreBeautification
 
         private void AddPropsPanels(UITabstrip tabstrip, EditorProps[] props)
         {
-            foreach (EditorProps prop in props)
+            foreach (var prop in props)
             {
-                UIButton button = this.AddButton(typeof(EditorPropsPanel), tabstrip, prop.m_category, prop.m_categories, prop.m_tooltip, true);
+                var button = this.AddButton(typeof(EditorPropsPanel), tabstrip, prop.m_category, prop.m_categories, prop.m_tooltip, true);
                 if (button == null)
                 {
                     continue;
@@ -113,51 +136,33 @@ namespace MoreBeautification
 
         private UIButton[] AllButtons(UITabstrip s)
         {
-            List<UIButton> buttons = new List<UIButton>();
-            foreach (UIComponent component in s.components)
-            {
-                if (component != null && component is UIButton)
-                {
-                    UIButton button = (UIButton)component;
-                    buttons.Add(button);
-                }
-            }
-            return buttons.ToArray();
+            return s.components.OfType<UIButton>().ToArray();
         }
 
         private UIButton FindButton(UITabstrip s, string name)
         {
-            UIButton[] buttons = this.AllButtons(s);
+            var buttons = this.AllButtons(s);
             return Array.Find(buttons, b => b.name == name);
         }
 
         private bool IsCreated(UITabstrip strip)
         {
-            UIButton button = this.FindButton(strip, "TerrainDefault");
+            var button = this.FindButton(strip, "TerrainDefault");
             return button != null;
         }
 
         private UITabstrip BeautificationTabstrip(UITabstrip s)
         {
-            UIButton button = this.FindButton(s, "Beautification");
+            var button = this.FindButton(s, "Beautification");
             if (button == null)
             {
                 return null;
             }
 
-            Type groupPanelType = typeof(BeautificationGroupPanel);
-            GeneratedGroupPanel groupPanel = (GeneratedGroupPanel)s.GetComponentInContainer(button, groupPanelType);
+            var groupPanelType = typeof(BeautificationGroupPanel);
+            var groupPanel = (GeneratedGroupPanel)s.GetComponentInContainer(button, groupPanelType);
 
-            if (groupPanel == null)
-            {
-                return null;
-            }
-
-            UITabstrip strip = groupPanel.Find<UITabstrip>("GroupToolstrip");
-            if (strip == null)
-            {
-                return null;
-            }
+            var strip = groupPanel?.Find<UITabstrip>("GroupToolstrip");
             return strip;
         }
 
@@ -168,29 +173,30 @@ namespace MoreBeautification
 
         private UIButton AddButton(Type type, UITabstrip strip, string category, string[] editorCategories, string tooltip, bool enabled)
         {
-            if (GameObject.Find(String.Format("{0}Panel", category)) != null)
+            if (GameObject.Find($"{category}Panel") != null)
             {
                 return null;
             }
             
-            GameObject subbarButtonTemplate = UITemplateManager.GetAsGameObject("SubbarButtonTemplate");
-            GameObject subbarPanelTemplate = UITemplateManager.GetAsGameObject("SubbarPanelTemplate");
+            var subbarButtonTemplate = UITemplateManager.GetAsGameObject("SubbarButtonTemplate");
+            var subbarPanelTemplate = UITemplateManager.GetAsGameObject("SubbarPanelTemplate");
 
 
-            UIButton button = (UIButton)strip.AddTab(category, subbarButtonTemplate, subbarPanelTemplate, type);
+            var button = (UIButton)strip.AddTab(category, subbarButtonTemplate, subbarPanelTemplate, type);
             button.isEnabled = enabled;
 
-            GeneratedScrollPanel generatedScrollPanel = (GeneratedScrollPanel)strip.GetComponentInContainer(button, type);
+            var generatedScrollPanel = (GeneratedScrollPanel)strip.GetComponentInContainer(button, type);
             if (generatedScrollPanel != null)
             {
                 generatedScrollPanel.component.isInteractive = true;
                 generatedScrollPanel.m_OptionsBar = ToolsModifierControl.mainToolbar.m_OptionsBar;
                 generatedScrollPanel.m_DefaultInfoTooltipAtlas = ToolsModifierControl.mainToolbar.m_DefaultInfoTooltipAtlas;
 
-                if (generatedScrollPanel is EditorPropsPanel)
+                var panel = generatedScrollPanel as EditorPropsPanel;
+                if (panel != null)
                 {
-                    ((EditorPropsPanel)generatedScrollPanel).m_editorCategories = editorCategories;
-                    ((EditorPropsPanel) generatedScrollPanel).category = category;
+                    panel.m_editorCategories = editorCategories;
+                    panel.category = category;
                 }
 
                 if (enabled)
