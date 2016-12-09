@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="en" ReadableName="English" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Translations>
+    <Translation ID="MB_DESCRIPTION" String="Enables props placement in-game." />
+    <!-- PANELS -->
+    <Translation ID="MB_PANEL_UNSORTED" String="Unsorted" />
+    <Translation ID="MB_PANEL_TILES" String="Ground Tiles" />
+    <Translation ID="MB_PANEL_LIGHTS" String="Lights" />
+    <Translation ID="MB_PANEL_COMMON" String="Common" />
+    <Translation ID="MB_PANEL_PARKS" String="Parks" />
+    <Translation ID="MB_PANEL_INDUSTRIAL" String="Insdustrial" />
+    <Translation ID="MB_PANEL_BILLBOARDS" String="Billboards" />
+    <Translation ID="MB_PANEL_SPECIAL_BILLBOARDS" String="Special Billboards" />
+    <Translation ID="MB_PANEL_RESIDENTIAL" String="Residential" />
+  </Translations>
+</Language>
