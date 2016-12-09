@@ -8,7 +8,7 @@ namespace MoreBeautification
         public override void OnLevelLoaded(LoadMode mode)
         {
             base.OnLevelLoaded(mode);
-            if (mode != LoadMode.NewGame && mode != LoadMode.LoadGame)
+            if (mode != LoadMode.NewGame && mode != LoadMode.LoadGame && mode!= LoadMode.NewGameFromScenario)
             {
                 return;
             }

@@ -12,8 +12,6 @@ namespace MoreBeautification.TranslationFramework
     /// </summary>
     public class Translation
     {
-        public event LanguageChangedEventHandler OnLanguageChanged;
-
         protected List<Language> _languages = new List<Language>();
         protected Language _currentLanguage = null;
         protected bool _languagesLoaded = false;
