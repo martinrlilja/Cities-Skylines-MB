@@ -41,7 +41,7 @@ namespace MoreBeautification
             var list = Resources.FindObjectsOfTypeAll<PropInfo>().Where(info => info.m_mesh != null).
                 Where(info => Array.Exists(this.m_editorCategories, c =>
             {
-                if (c != "PropsCommonStreets" && c != PrefabInfo.kDefaultCategory && c != PrefabInfo.kSameAsGameCategory)
+                if (c != "PropsCommonStreets" && c != PrefabInfo.kDefaultCategory && c != PrefabInfo.kSameAsGameCategory && c != "PropsResidentialGroundTiles")
                     return c == info.editorCategory;
                 switch (category)
                 {
@@ -56,7 +56,13 @@ namespace MoreBeautification
                                 return false;
                             }
                         }
+                        if (info.m_isDecal)
+                        {
+                            return false;
+                        }
                         break;
+                    case "PropsGroundTiles":
+                        return info.m_isDecal;
                 }
                 return c == info.editorCategory;
             })).ToList();
