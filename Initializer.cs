@@ -37,7 +37,7 @@ namespace MoreBeautification
                         "PropsBillboardsSmallBillboard",
                         "PropsBillboardsMediumBillboard",
                         "PropsBillboardsLargeBillboard",
-                    }, "ToolbarIconPropsBillboards", "Billboards"),
+                    }, "ToolbarIconPropsBillboards", MoreBeautification.translation.GetTranslation("MB_PANEL_BILLBOARDS")),
 
                     new EditorProps ("PropsSpecialBillboards", new[] {
                         "PropsBillboardsRandomLogo",
@@ -46,51 +46,51 @@ namespace MoreBeautification
                         "PropsSpecialBillboardsRandomLargeBillboard",
                         "PropsSpecialBillboards3DBillboard",
                         "PropsSpecialBillboardsAnimatedBillboard",
-                    }, "ToolbarIconPropsSpecialBillboards", "Special Billboards"),
+                    }, "ToolbarIconPropsSpecialBillboards", MoreBeautification.translation.GetTranslation("MB_PANEL_SPECIAL_BILLBOARDS")),
 
                     new EditorProps ("PropsIndustrial", new[] {
                         "PropsIndustrialContainers",
                         "PropsIndustrialConstructionMaterials",
                         "PropsIndustrialStructures",
-                    }, "ToolbarIconPropsIndustrial", "Industrial"),
+                    }, "ToolbarIconPropsIndustrial", MoreBeautification.translation.GetTranslation("MB_PANEL_INDUSTRIAL")),
 
                     new EditorProps ("PropsParks", new[] {
                         "PropsParksPlaygrounds",
                         "PropsParksFlowersAndPlants",
                         "PropsParksParkEquipment",
                         "PropsParksFountains"
-                    }, "ToolbarIconPropsParks", "Parks"),
+                    }, "ToolbarIconPropsParks", MoreBeautification.translation.GetTranslation("MB_PANEL_PARKS")),
 
                     new EditorProps ("PropsCommon", new[] {
                         "PropsCommonAccessories",
                         "PropsCommonGarbage",
                         "PropsCommonCommunications",
                         "PropsCommonStreets"
-                    }, "ToolbarIconPropsCommon", "Common"),
+                    }, "ToolbarIconPropsCommon", MoreBeautification.translation.GetTranslation("MB_PANEL_COMMON")),
 
                     new EditorProps ("PropsResidential", new[] {
                         "PropsResidentialHomeYard",
                         "PropsResidentialRooftopAccess",
                         "PropsResidentialRandomRooftopAccess",
-                    }, "ToolbarIconPropsResidential", "Residential"),
+                    }, "ToolbarIconPropsResidential", MoreBeautification.translation.GetTranslation("MB_PANEL_RESIDENTIAL")),
 
                     new EditorProps ("PropsLights", new[] {
                         "PropsCommonStreets",
                         "PropsCommonLights",
                         PrefabInfo.kDefaultCategory,
                         PrefabInfo.kSameAsGameCategory,
-                    }, "SubBarPropsCommonLights", "Lights"),
+                    }, "SubBarPropsCommonLights", MoreBeautification.translation.GetTranslation("MB_PANEL_LIGHTS")),
 
 
                     new EditorProps ("PropsGroundTiles", new[] {
                         "PropsResidentialGroundTiles"
-                    }, "SubBarPropsResidentialGroundTiles", "Ground Decals"),
+                    }, "SubBarPropsResidentialGroundTiles", MoreBeautification.translation.GetTranslation("MB_PANEL_TILES")),
 
                     new EditorProps ("PropsUnsorted", new[] {
                         PrefabInfo.kDefaultCategory,
                         PrefabInfo.kSameAsGameCategory,
                         "PropsMarkers"
-                    }, "ToolbarIconHelp", "Unsorted"),
+                    }, "ToolbarIconHelp", MoreBeautification.translation.GetTranslation("MB_PANEL_UNSORTED")),
 
                 });
             }
