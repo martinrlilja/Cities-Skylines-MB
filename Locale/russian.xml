@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="ru" ReadableName="English" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Translations>
+    <Translation ID="MB_DESCRIPTION" String="Позволяет размещать пропы в игре" />
+    <!-- PANELS -->
+    <Translation ID="MB_PANEL_UNSORTED" String="Прочие" />
+    <Translation ID="MB_PANEL_TILES" String="Деколи" />
+    <Translation ID="MB_PANEL_LIGHTS" String="Фонари" />
+    <Translation ID="MB_PANEL_COMMON" String="Общие" />
+    <Translation ID="MB_PANEL_PARKS" String="Парки" />
+    <Translation ID="MB_PANEL_INDUSTRIAL" String="Индустриальные" />
+    <Translation ID="MB_PANEL_BILLBOARDS" String="Плакаты" />
+    <Translation ID="MB_PANEL_SPECIAL_BILLBOARDS" String="Особые плакаты" />
+    <Translation ID="MB_PANEL_RESIDENTIAL" String="Жилые" />
+  </Translations>
+</Language>

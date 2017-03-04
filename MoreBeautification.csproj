@@ -44,6 +44,7 @@
     <Compile Include="TranslationFramework\Util.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Locale\russian.xml" />
     <Content Include="Locale\english.xml" />
     <Content Include="Locale\chinese.xml" />
     <Content Include="Locale\simplified-chinese.xml" />

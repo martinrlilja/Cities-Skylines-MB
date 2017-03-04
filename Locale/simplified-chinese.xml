@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Language UniqueName="zh-cn" ReadableName="正體中文" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Language UniqueName="zh-cn" ReadableName="简体中文" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Translations>
-    <Translation ID="MB_DESCRIPTION" String="开启在游戏中使用摆件" />
+    <Translation ID="MB_DESCRIPTION" String="游戏中可使用物品摆件" />
     <!-- PANELS -->
     <Translation ID="MB_PANEL_UNSORTED" String="未分类" />
     <Translation ID="MB_PANEL_TILES" String="地面装饰" />
-    <Translation ID="MB_PANEL_LIGHTS" String="灯具" />
-    <Translation ID="MB_PANEL_COMMON" String="常用" />
-    <Translation ID="MB_PANEL_PARKS" String="公园类" />
-    <Translation ID="MB_PANEL_INDUSTRIAL" String="工业类" />
-    <Translation ID="MB_PANEL_BILLBOARDS" String="广告牌" />
-    <Translation ID="MB_PANEL_SPECIAL_BILLBOARDS" String="特殊广告牌" />
-    <Translation ID="MB_PANEL_RESIDENTIAL" String="住宅区" />
+    <Translation ID="MB_PANEL_LIGHTS" String="灯具类型" />
+    <Translation ID="MB_PANEL_COMMON" String="物品物件" />
+    <Translation ID="MB_PANEL_PARKS" String="公园类型" />
+    <Translation ID="MB_PANEL_INDUSTRIAL" String="工业类型" />
+    <Translation ID="MB_PANEL_BILLBOARDS" String="灯箱广告牌" />
+    <Translation ID="MB_PANEL_SPECIAL_BILLBOARDS" String="动态广告牌" />
+    <Translation ID="MB_PANEL_RESIDENTIAL" String="住宅类型" />
   </Translations>
 </Language>

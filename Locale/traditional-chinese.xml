@@ -1,16 +1,16 @@
-ï»¿<?xml version="1.0" encoding="utf-8"?>
-<Language UniqueName="zh-tw" ReadableName="æ­£é«”ä¸­æ–‡" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="zh-tw" ReadableName="·±ÌåÖÐÎÄ" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Translations>
-    <Translation ID="MB_DESCRIPTION" String="å¼€å¯åœ¨æ¸¸æˆä¸­ä½¿ç”¨æ‘†ä»¶" />
+    <Translation ID="MB_DESCRIPTION" String="ß[‘òÖÐ¿ÉÊ¹ÓÃÎïÆ·”[¼þ" />
     <!-- PANELS -->
-    <Translation ID="MB_PANEL_UNSORTED" String="æœªåˆ†ç±»" />
-    <Translation ID="MB_PANEL_TILES" String="åœ°é¢è£…é¥°" />
-    <Translation ID="MB_PANEL_LIGHTS" String="ç¯å…·" />
-    <Translation ID="MB_PANEL_COMMON" String="å¸¸ç”¨" />
-    <Translation ID="MB_PANEL_PARKS" String="å…¬å›­ç±»" />
-    <Translation ID="MB_PANEL_INDUSTRIAL" String="å·¥ä¸šç±»" />
-    <Translation ID="MB_PANEL_BILLBOARDS" String="å¹¿å‘Šç‰Œ" />
-    <Translation ID="MB_PANEL_SPECIAL_BILLBOARDS" String="ç‰¹æ®Šå¹¿å‘Šç‰Œ" />
-    <Translation ID="MB_PANEL_RESIDENTIAL" String="ä½å®…åŒº" />
+    <Translation ID="MB_PANEL_UNSORTED" String="Î´·Öî" />
+    <Translation ID="MB_PANEL_TILES" String="µØÃæÑbï—" />
+    <Translation ID="MB_PANEL_LIGHTS" String="Ÿô¾ßîÐÍ" />
+    <Translation ID="MB_PANEL_COMMON" String="ÎïÆ·Îï¼þ" />
+    <Translation ID="MB_PANEL_PARKS" String="¹«ˆ@îÐÍ" />
+    <Translation ID="MB_PANEL_INDUSTRIAL" String="¹¤˜IîÐÍ" />
+    <Translation ID="MB_PANEL_BILLBOARDS" String="ŸôÏäîV¸æÅÆ" />
+    <Translation ID="MB_PANEL_SPECIAL_BILLBOARDS" String="„Ó‘BV¸æÅÆ" />
+    <Translation ID="MB_PANEL_RESIDENTIAL" String="×¡Õ¬îÐÍ" />
   </Translations>
 </Language>
