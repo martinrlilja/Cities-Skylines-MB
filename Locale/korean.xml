@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="kr" ReadableName="한국어(Korean)" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Translations>
+    <Translation ID="MB_DESCRIPTION" String="게임에서 소품(prop) 배치를 활성화시킵니다." />
+    <!-- PANELS -->
+    <Translation ID="MB_PANEL_UNSORTED" String="미분류소품" />
+    <Translation ID="MB_PANEL_TILES" String="바닥 타일" />
+    <Translation ID="MB_PANEL_LIGHTS" String="조명" />
+    <Translation ID="MB_PANEL_COMMON" String="공통소품" />
+    <Translation ID="MB_PANEL_PARKS" String="공원소품" />
+    <Translation ID="MB_PANEL_INDUSTRIAL" String="산업소품" />
+    <Translation ID="MB_PANEL_BILLBOARDS" String="간판" />
+    <Translation ID="MB_PANEL_SPECIAL_BILLBOARDS" String="특수 간판" />
+    <Translation ID="MB_PANEL_RESIDENTIAL" String="주거소품" />
+  </Translations>
+</Language>
