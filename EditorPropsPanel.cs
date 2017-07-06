@@ -1,10 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using ColossalFramework;
-using ColossalFramework.DataBinding;
 using ColossalFramework.UI;
 using UnityEngine;
 
@@ -21,25 +17,20 @@ namespace MoreBeautification
             ReflectionUtils.InvokeInstanceMethod(m_CreateAssetItem, this, info);
         }
 
-        public override ItemClass.Service service
-        {
-            get
-            {
-                return ItemClass.Service.None;
-            }
-        }
+        public override ItemClass.Service service => ItemClass.Service.None;
 
         protected override void OnButtonClicked(UIComponent comp)
         {
-            object objectUserData = comp.objectUserData;
-            PropInfo propInfo = objectUserData as PropInfo;
-            if (propInfo != null)
+            var objectUserData = comp.objectUserData;
+            var propInfo = objectUserData as PropInfo;
+            if (propInfo == null)
             {
-                PropTool propTool = ToolsModifierControl.SetTool<PropTool>();
-                if (propTool != null)
-                {
-                    propTool.m_prefab = propInfo;
-                }
+                return;
+            }
+            var propTool = ToolsModifierControl.SetTool<PropTool>();
+            if (propTool != null)
+            {
+                propTool.m_prefab = propInfo;
             }
         }
 
@@ -50,7 +41,7 @@ namespace MoreBeautification
             var list = Resources.FindObjectsOfTypeAll<PropInfo>().Where(info => info.m_mesh != null).
                 Where(info => Array.Exists(this.m_editorCategories, c =>
             {
-                if (c != "PropsCommonStreets" && c != PrefabInfo.kDefaultCategory && c != PrefabInfo.kSameAsGameCategory)
+                if (c != "PropsCommonStreets" && c != PrefabInfo.kDefaultCategory && c != PrefabInfo.kSameAsGameCategory && c != "PropsResidentialGroundTiles")
                     return c == info.editorCategory;
                 switch (category)
                 {
@@ -65,13 +56,19 @@ namespace MoreBeautification
                                 return false;
                             }
                         }
+                        if (info.m_isDecal)
+                        {
+                            return false;
+                        }
                         break;
+                    case "PropsGroundTiles":
+                        return info.m_isDecal;
                 }
                 return c == info.editorCategory;
             })).ToList();
-            list.Sort(new Comparison<PropInfo>(this.ItemsGenericCategorySort));
+            list.Sort(this.ItemsGenericCategorySort);
 
-            foreach (PropInfo info in list)
+            foreach (var info in list)
             {
                 this.CreateAssetItem(info);
             }
@@ -85,8 +82,8 @@ namespace MoreBeautification
             }
             else
             {
-                int aID = Array.FindIndex(this.m_editorCategories, c => c == a.editorCategory);
-                int bID = Array.FindIndex(this.m_editorCategories, c => c == b.editorCategory);
+                var aID = Array.FindIndex(this.m_editorCategories, c => c == a.editorCategory);
+                var bID = Array.FindIndex(this.m_editorCategories, c => c == b.editorCategory);
                 return aID - bID;
             }
         }

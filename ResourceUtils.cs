@@ -46,7 +46,7 @@ namespace MoreBeautification
         {
             Texture2D[] sprites = ResourceUtils.Load<Texture2D>(names);
 
-            UITextureAtlas atlas = new UITextureAtlas();
+            UITextureAtlas atlas = ScriptableObject.CreateInstance<UITextureAtlas>();
             atlas.material = new Material(ResourceUtils.GetUIAtlasShader());
 
             Texture2D texture = new Texture2D(0, 0);

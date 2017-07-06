@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="zh-tw" ReadableName="繁体中文" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Translations>
+    <Translation ID="MB_DESCRIPTION" String="遊戲中可使用物品擺件" />
+    <!-- PANELS -->
+    <Translation ID="MB_PANEL_UNSORTED" String="未分類" />
+    <Translation ID="MB_PANEL_TILES" String="地面裝飾" />
+    <Translation ID="MB_PANEL_LIGHTS" String="燈具類型" />
+    <Translation ID="MB_PANEL_COMMON" String="物品物件" />
+    <Translation ID="MB_PANEL_PARKS" String="公園類型" />
+    <Translation ID="MB_PANEL_INDUSTRIAL" String="工業類型" />
+    <Translation ID="MB_PANEL_BILLBOARDS" String="燈箱類廣告牌" />
+    <Translation ID="MB_PANEL_SPECIAL_BILLBOARDS" String="動態廣告牌" />
+    <Translation ID="MB_PANEL_RESIDENTIAL" String="住宅類型" />
+  </Translations>
+</Language>

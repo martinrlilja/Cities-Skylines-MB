@@ -1,21 +1,14 @@
-using System;
-using ColossalFramework;
-using ColossalFramework.UI;
 using ICities;
-using UnityEngine;
+using MoreBeautification.TranslationFramework;
 
 namespace MoreBeautification
 {
     public class MoreBeautification : IUserMod
     {
-        public string Name
-        {
-            get { return "More Beautification"; }
-        }
+        public static Translation translation = new Translation();
 
-        public string Description
-        {
-            get { return "Enables props placement in game."; }
-        }
+        public string Name => "More Beautification";
+
+        public string Description => translation.GetTranslation("MB_DESCRIPTION");
     }
 }
