@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language UniqueName="pl" ReadableName="Polski" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Translations>
+    <Translation ID="MB_DESCRIPTION" String="Włącza możliwość stawiania propów w grze" />
+    <!-- PANELS -->
+    <Translation ID="MB_PANEL_UNSORTED" String="Nieposortowane" />
+    <Translation ID="MB_PANEL_TILES" String="Naziemne" />
+    <Translation ID="MB_PANEL_LIGHTS" String="Światła" />
+    <Translation ID="MB_PANEL_COMMON" String="Inne" />
+    <Translation ID="MB_PANEL_PARKS" String="Parki" />
+    <Translation ID="MB_PANEL_INDUSTRIAL" String="Przemysłowe" />
+    <Translation ID="MB_PANEL_BILLBOARDS" String="Billboardy" />
+    <Translation ID="MB_PANEL_SPECIAL_BILLBOARDS" String="Specjalne Billboardy" />
+    <Translation ID="MB_PANEL_RESIDENTIAL" String="Mieszkalne" />
+  </Translations>
+</Language>
